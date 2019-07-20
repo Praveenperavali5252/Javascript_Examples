@@ -1,0 +1,25 @@
+<input type='button' value='1' onclick='a()'/>
+<input type='button' value='1' onclick="b()"/>
+<script>
+   var  btn1Ref=document.querySelector('input:first-child');
+    var btn2Ref=document.querySelector('input:nth-child(2)');
+    
+    function f1(){
+        var btn1Cou=1;
+         return function(){
+            btn1Cou=btn1Cou+1;
+            btn1Ref.setAttribute('value',btn1Cou);
+         }
+    }
+    var a=f1();
+
+     
+    function f2(){
+        var btn2Cou=1;
+         return function(){
+            btn2Cou=btn2Cou+1;
+            btn2Ref.setAttribute('value',btn2Cou);
+         }
+    }
+    var b=f2();
+</script>
